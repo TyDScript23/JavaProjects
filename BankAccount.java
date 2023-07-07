@@ -1,10 +1,17 @@
-package com.example.classmethods;
+package com.example.objectsandclasses2;
 
 public class BankAccount {
+
+    //properties
+
     private double balance;
+    private String acctnum;
+
+    //methods
 
     public BankAccount() {
         balance = 0.0;
+        acctnum = "";
     }
 
     public BankAccount(double startBalance) {
@@ -41,6 +48,16 @@ public class BankAccount {
     public void setBalance(String str)
     {
         balance = Double.parseDouble(str);
+    }
+
+    public void setacctnum(String an)
+    {
+        acctnum = an;
+    }
+
+    public String getacctnum()
+    {
+        return acctnum;
     }
 
     public double getBalance()

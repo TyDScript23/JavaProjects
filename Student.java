@@ -1,9 +1,11 @@
-package com.example.arraypractice;
-
-import javax.swing.*;
+package com.example.student;
 
 public class Student
 {
+    private int hours;
+    private double gpa;
+    private String stuname;
+
     private String firstName;
     private String lastName;
     private char middleInitial;
@@ -162,6 +164,35 @@ public class Student
         }
         else
             return firstName + " " + middleInitial + ". " + lastName;
+    }
+
+    public void sethours(int hrs)
+    {
+        this.hours = hrs;
+    }
+
+    public void setgpa(double grptavg)
+    {
+        gpa = grptavg;
+    }
+
+    public int gethours()
+    {
+        return hours;
+    }
+
+    public double getgpa()
+    {
+        return gpa;
+    }
+
+
+    public void addcourse(int coursehours, double grade) {
+        double weightedgpa;
+        weightedgpa = hours * gpa;
+        hours += coursehours;
+        weightedgpa += grade * coursehours;
+        gpa = weightedgpa / hours;
     }
 
     public void display()

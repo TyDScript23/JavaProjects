@@ -1,9 +1,10 @@
-package com.example.jframe;
+package com.example.objectsandclasses;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class Frame1 extends JFrame {
+
     JLabel quote = new JLabel("Java is Fun!");
     Font ravie = new Font("Ravie", Font.BOLD, 24);
     FlowLayout flow = new FlowLayout();
@@ -14,6 +15,7 @@ public class Frame1 extends JFrame {
         super("Quote Frame");
 
         c = getContentPane();
+
         c.setLayout(flow);
         c.setBackground(Color.cyan);
 

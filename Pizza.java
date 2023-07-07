@@ -1,65 +1,47 @@
-package com.example.jframe;
+package com.example.objectsandclasses2;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
+public class Pizza {
+    protected String size;
+    protected double price;
+    protected String topping;
 
-public class Pizza extends JFrame implements ActionListener {
-    JLabel orderlabel = new JLabel("Pizza Order Form");
-    JLabel toppingslabel = new JLabel
-            ("Choose your toppings ($1 each)");
-    JLabel pricelabel = new JLabel
-            ("                             ");
-    JCheckBox eggplant = new JCheckBox("Eggplant");
-    JCheckBox anchoives = new JCheckBox("Anchoives");
-    JCheckBox hotpeppers = new JCheckBox("Hot Peppers");
-    JButton orderbutton = new JButton("Order");
-    Font orderfont = new Font("Helvetica", Font.BOLD, 36);
-    Font pricefont = new Font("Helvetica", Font.PLAIN, 18);
-    Container c;
-    public Pizza()
+    public Pizza()   //overloaded constructor
     {
-        setSize(300, 500);
-        c = getContentPane();
-        c.setLayout(new FlowLayout());
-        c.setBackground(Color.red);
-        orderlabel.setFont(orderfont);
-        pricelabel.setFont(pricefont);
-        c.add(orderlabel);
-        c.add(toppingslabel);
-        c.add(eggplant);
-        c.add(anchoives);
-        c.add(hotpeppers);
-        c.add(orderbutton);
-        c.add(pricelabel);
-        orderbutton.addActionListener(this);
-        setVisible(true);
-    }
-// actionPerformed() continued
-
-    public void actionPerformed(ActionEvent e)
-    {
-        double price;
-        int count = 0;
-        boolean egg, anch, pep;
-        egg = eggplant.isSelected();
-// isSelected returns true or false
-        anch = anchoives.isSelected();
-        pep = hotpeppers.isSelected();
-        if (egg)
-            count++;
-        if (anch)
-            count++;
-        if (pep)
-            count++;
-        price = 8 + count;
-// pizza + toppings
-        pricelabel.setText(String.format("Your price: $%.2f",price));
+        size = "Large";
+        price = 11.00;
     }
 
-    public static void main(String[] args)
+    public void raisePrice()
     {
-        Pizza f = new Pizza();
+        price++;
     }
 
+    public Pizza(String s, double p)   //overloaded constructor
+    {
+        size = s;
+        price = p;
+    }
+
+    public Pizza(String s, String t)
+    {
+        topping = t;
+        size = s;
+    }
+
+    public String getSize()
+    {
+        return size;
+    }
+
+    public double getPrice()
+    {
+        return price;
+    }
+
+    public void printPizza()
+    {
+        System.out.println("\nThis pizza " + this);
+        System.out.println("Size = " + size);
+        System.out.println("Topping = " + topping);
+    }
 }

@@ -1,132 +1,46 @@
-package com.example.codingprojects;
+package com.example.objectsandclasses2;
 
-public class Employee
-{
-    private String firstName;
-    private String lastName;
-    private String middleInitial;
-    private int id;
-    private char level;
-    private double payment;
-    private String message;
+public class Employee {
+    private final String name;
+    private String title;
+    private double salary;
 
-    public Employee()
+    public Employee(String n)
     {
-        firstName = null;
-        lastName = null;
-        id = 0;
-        middleInitial = null;
-        level = 'X';
+        name = n;
+        salary = 50000;
     }
 
-    public Employee(String fName, String lName, String m, int i, char l , String email) {
-        firstName = fName;
-        lastName = lName;
-        id = i;
-        middleInitial = m;
-        level = l;
-        message = email;
-    }
-
-    public void setFirstName(String fName)
+    public Employee(String n, String t, double s)
     {
-        firstName = fName;
+        name = n;
+        title = t;
+        salary = s;
     }
 
-    public String getFirstName()
+    public String getName()
     {
-        return firstName;
+        return name;
     }
 
-    public void setLastName(String lName)
+    public String getTitle()
     {
-        lastName=lName;
+        return title;
     }
 
-    public String getLastName()
+    public double getRate()
     {
-        return lastName;
+        return salary;
     }
 
-    public void setID(int ident)
+    public void raise()
     {
-        id = ident;
+        salary *= 1.05;
     }
 
-    public int getID()
+    public void printEmployee()
     {
-        return id;
-    }
-
-    public void setLevel(char l)
-    {
-        level = l;
-    }
-
-    public char getLevel()
-    {
-        return level;
-    }
-
-    public void setMiddleInitial(String m)
-    {
-        middleInitial = m;
-    }
-
-    public String getMiddleInitial()
-    {
-        return middleInitial;
-    }
-
-    public void calculatePay(char choice, double hours) {
-
-        double grossPay = 0;
-
-        level = choice;
-
-        if (level == 'A')
-            grossPay = 12.00 * hours;
-        else {
-            if (level == 'B')
-                grossPay = 14.50 * hours;
-            else {
-                if (level == 'C')
-                    grossPay = 16.00 * hours;
-                else {
-                    if (level == 'D')
-                        grossPay = 20.00 * hours;
-                    else
-                        System.out.println("There is no payrate designated to this letter!!!");
-                }
-            }
-        }
-        payment =  grossPay;
-    }
-
-    public void setEmail(String f, String l, String m)
-    {
-        message = f + "." + l + "." + m + "@hvcc.edu";
-    }
-
-    public String getEmail()
-    {
-        return message;
-    }
-
-    public void getFullName()
-    {
-        System.out.print(firstName + " "+ middleInitial + " " + lastName);
-    }
-
-    public void display()
-    {
-        System.out.println("Employee's Name: " + firstName + " "
-        + middleInitial + " " + lastName);
-        System.out.println("Employee's ID Number: " + id );
-        System.out.println("Employee's Level: " + level);
-        System.out.println("Employee's Email Address: " + message);
-        System.out.println();
-        System.out.printf("Employee's pay: $%.2f\n",payment);
-        System.out.println();
+        System.out.println("Name is " + name);
+        System.out.printf("Salary is %.2f\n", salary);
     }
 }
